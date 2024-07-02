@@ -1,0 +1,521 @@
+{% extends 'base.html' %}
+
+{% block title %}Страница теста{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <div class="form-container mt-5">
+        <h1 class="text-center">Тест социального интеллекта (модификация методики Холла)</h1>
+        <p class="lead">
+                Методика состоит из 30 утверждений и позволяет выявить слагаемые социального интеллекта, который является важнейшим условием полноценного профессионального и личностного развития человека («Самосознание», «Саморегуляция», «Эмпатия», «Коммуникабельность», «Самомотивация»). Достоверность методики зависит от уровня самооценки и самопонимания.
+        </p>
+        <p class="lead">
+                Если высказывание отражает ваше отношение к себе, людям и событиям — поставьте галочку, если не отражает — пропускайте.
+        </p>
+        <hr class="my-4">
+        <form action="/text" method="post">
+            <h1 class="text-center">Анкета</h1>
+            <div class="form-group my-3">
+                <label for="gender">Укажите ваш пол:</label><br>
+                <div class="form-check">
+                    <input type="radio" id="male" name="gender" value="Мужчина">
+                    <label class="form-check-label" for="male">Мужской</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="female" name="gender" value="Женщина">
+                    <label class="form-check-label" for="female">Женский</label><br>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label for="age">Укажите год вашего рождения:</label><br>
+                <input type="number" class="form-control" id="age" name="age" placeholder="2002"><br>
+            </div>
+
+            <div class="form-group my-3">
+                <label>1. Как Вы относитесь к технологиям искусственного интеллекта (ИИ) в целом?</label>
+                <div class="form-check">
+                    <input type="radio" id="positively" name="question_1" value="Положительно" >
+                    <label class="form-check-label" for="positively">Положительно</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="negative" name="question_1" value="Отрицательно">
+                    <label class="form-check-label" for="negative">Отрицательно</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="neutral" name="question_1" value="Нейтрально">
+                    <label class="form-check-label" for="neutral">Нейтрально</label><br>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>2. Какие нейронные сети вы знаете?</label>
+                <div class="form-check">
+                    <input type="radio" id="text" name="question_2" value="Текстовые">
+                    <label class="form-check-label" for="text">Текстовые</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="pictures" name="question_2" value="Картинные">
+                    <label class="form-check-label" for="pictures">Картинные</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="know" name="question_2" value="Знаю и текстовые, и картинные">
+                    <label class="form-check-label" for="know">Знаю и текстовые, и картинные</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="nothing" name="question_2" value="Не знаю ни тех, ни других">
+                    <label class="form-check-label" for="nothing">Не знаю ни тех, ни других</label><br>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>3. Используете ли вы в повседневной жизни текстовые нейросети?</label>
+                <div class="form-check">
+                    <input type="radio" id="text_yes" name="question_3" value="Да">
+                    <label class="form-check-label" for="text_yes">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="text_no" name="question_3" value="Нет">
+                    <label class="form-check-label" for="text_no">Нет</label><br>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>4. Для чего вы чаще всего используете текстовые нейросети?</label>
+                <div class="form-check">
+                    <input type="radio" id="text_practical" name="question_4" value="Решение практических задач">
+                    <label class="form-check-label" for="text_practical">Решение практических задач</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="text_entertainment" name="question_4" value="Развлечения">
+                    <label class="form-check-label" for="text_entertainment">Развлечения</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="text_unsure" name="question_4" value="Трудно сказать">
+                    <label class="form-check-label" for="text_unsure">Трудно сказать</label><br>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>5. Используете ли вы в повседневной жизни картинные нейросети?</label>
+                <div class="form-check">
+                    <input type="radio" id="image_yes" name="question_5" value="Да">
+                    <label class="form-check-label" for="image_yes">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="image_no" name="question_5" value="Нет">
+                    <label class="form-check-label" for="image_no">Нет</label><br>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>6. Для чего вы чаще всего используете картиночные нейросети?</label>
+                <div class="form-check">
+                    <input type="radio" id="image_practical" name="question_6" value="Решение практических задач">
+                    <label class="form-check-label" for="image_practical">Решение практических задач</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="image_entertainment" name="question_6" value="Развлечения">
+                    <label class="form-check-label" for="image_entertainment">Развлечения</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="image_unsure" name="question_6" value="Трудно сказать">
+                    <label class="form-check-label" for="image_unsure">Трудно сказать</label><br>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>7. Помогают ли вам нейронные сети в решении повседневных задач?</label>
+                <div class="form-check">
+                    <input type="radio" id="ai_help_yes" name="question_7" value="Да">
+                    <label class="form-check-label" for="ai_help_yes">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="ai_help_no" name="question_7" value="Нет">
+                    <label class="form-check-label" for="ai_help_no">Нет</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="ai_help_unsure" name="question_7" value="Затрудняюсь ответить">
+                    <label class="form-check-label" for="ai_help_unsure">Затрудняюсь ответить</label><br>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>8. Верите ли вы, что искусственный интеллект способен заменить человека?</label>
+                <div class="form-check">
+                    <input type="radio" id="ai_replace_yes" name="question_8" value="Да">
+                    <label class="form-check-label" for="ai_replace_yes">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="ai_replace_no" name="question_8" value="Нет">
+                    <label class="form-check-label" for="ai_replace_no">Нет</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="ai_replace_unsure" name="question_8" value="Затрудняюсь ответить">
+                    <label class="form-check-label" for="ai_replace_unsure">Затрудняюсь ответить</label><br>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>9. Что вы думаете о применении искусственного интеллекта в различных сферах жизни?</label>
+                <div class="form-check">
+                    <input type="radio" id="ai_all" name="question_9" value="ИИ должен использоваться во всех возможных сферах">
+                    <label class="form-check-label" for="ai_all">ИИ должен использоваться во всех возможных сферах</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="ai_some" name="question_9" value="ИИ следует использовать только в некоторых сферах">
+                    <label class="form-check-label" for="ai_some">ИИ следует использовать только в некоторых сферах</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="ai_none" name="question_9" value="ИИ не должен использоваться вообще">
+                    <label class="form-check-label" for="ai_none">ИИ не должен использоваться вообще</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="ai_unsure" name="question_9" value="Затрудняюсь ответить">
+                    <label class="form-check-label" for="ai_unsure">Затрудняюсь ответить</label><br>
+                </div>
+            </div>
+            <hr class="my-4">
+
+            <div class="form-group my-3">
+                <h1 class="text-center">Тест</h1>
+                <label>1. Для меня дороги как отрицательные, так и положительные эмоции в своей жизни.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_yes_1" name="self_awareness_1" value="1">
+                    <label for="awareness_yes_1">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_no_1" name="self_awareness_1" value="0">
+                    <label for="awareness_no_1">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>2. Когда я испытываю давление со стороны, то обычно сопротивляюсь.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_yes_2" name="self_awareness_2" value="1">
+                    <label for="awareness_yes_2">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_no_2" name="self_awareness_2" value="0">
+                    <label for="awareness_no_2">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>3. Я обычно терпеливо выслушиваю других людей, иногда в ущерб своим интересам.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_yes_3" name="self_awareness_3" value="1">
+                    <label for="awareness_yes_3">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_no_3" name="self_awareness_3" value="0">
+                    <label for="awareness_no_3">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label> 4. В общественных местах или транспорте я с интересом рассматриваю незнакомых людей. </label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_yes_4" name="self_awareness_4" value="1">
+                    <label for="awareness_yes_4">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_no_4" name="self_awareness_4" value="0">
+                    <label for="awareness_no_4">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>5. Когда я занимаюсь любимым делом, все остальное отходит на второй план.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_yes_5" name="self_awareness_5" value="1">
+                    <label for="awareness_yes_5">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_no_5" name="self_awareness_5" value="0">
+                    <label for="awareness_no_5">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>6. Отрицательные эмоции помогают мне понять, что мне нужно изменить в своей жизни.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_yes_6" name="self_awareness_6" value="1">
+                    <label for="awareness_yes_6">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="awareness_no_6" name="self_awareness_6" value="0">
+                    <label for="awareness_no_6">Нет</label>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>7. Я отслеживаю свои эмоциональные реакции.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_yes_1" name="self_regulation_1" value="1">
+                    <label for="regulation_yes_1">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_no_1" name="self_regulation_1" value="0">
+                    <label for="regulation_no_1">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>8. Мне легко понять переживания даже незнакомых людей.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_yes_2" name="self_regulation_2" value="1">
+                    <label for="regulation_yes_2">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_no_2" name="self_regulation_2" value="0">
+                    <label for="regulation_no_2">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>9. Мне нравится работа, связанная с интенсивным общением.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_yes_3" name="self_regulation_3" value="1">
+                    <label for="regulation_yes_3">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_no_3" name="self_regulation_3" value="0">
+                    <label for="regulation_no_3">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>10. Я не могу успокоиться, пока не доведу свою работу до совершенства.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_yes_4" name="self_regulation_4" value="1">
+                    <label for="regulation_yes_4">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_no_4" name="self_regulation_4" value="0">
+                    <label for="regulation_no_4">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>11. Мне интересно наблюдать изменение своего эмоционального состояния.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_yes_5" name="self_regulation_5" value="1">
+                    <label for="regulation_yes_5">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_no_5" name="self_regulation_5" value="0">
+                    <label for="regulation_no_5">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>12. Если меня что-то расстроило, я быстро прихожу в себя.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_yes_6" name="self_regulation_6" value="1">
+                    <label for="regulation_yes_6">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="regulation_no_6" name="self_regulation_6" value="0">
+                    <label for="regulation_no_6">Нет</label>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>13. Я хорошо понимаю эмоции других людей, даже если они их стараются скрыть.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_yes_1" name="empathy_1" value="1">
+                    <label for="empathy_yes_1">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_no_1" name="empathy_1" value="0">
+                    <label for="empathy_no_1">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>14. Мне нетрудно попросить незнакомого человека о помощи.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_yes_2" name="empathy_2" value="1">
+                    <label for="empathy_yes_2">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_no_2" name="empathy_2" value="0">
+                    <label for="empathy_no_2">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>15. Когда я берусь за новое дело, я не сомневаюсь в его успехе.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_yes_3" name="empathy_3" value="1">
+                    <label for="empathy_yes_3">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_no_3" name="empathy_3" value="0">
+                    <label for="empathy_no_3">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>16. Когда есть время, я обращаюсь к своим переживания, чтобы понять их причину.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_yes_4" name="empathy_4" value="1">
+                    <label for="empathy_yes_4">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_no_4" name="empathy_4" value="0">
+                    <label for="empathy_no_4">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>17. Я не застреваю на отрицательных эмоциях.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_yes_5" name="empathy_5" value="1">
+                    <label for="empathy_yes_5">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_no_5" name="empathy_5" value="0">
+                    <label for="empathy_no_5">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>18. Я чувствую настроение человека по выражению его лица.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_yes_6" name="empathy_6" value="1">
+                    <label for="empathy_yes_6">Да</label><br>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="empathy_no_6" name="empathy_6" value="0">
+                    <label for="empathy_no_6">Нет</label>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>19. Обычно я чувствую себя комфортно даже в компании незнакомых людей.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_yes_1" name="interaction_skills_1" value="1">
+                    <label for="interaction_yes_1">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_no_1" name="interaction_skills_1" value="0">
+                    <label for="interaction_no_1">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>20. Профессиональная успешность во многом зависит от отношения человека к своей работе.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_yes_2" name="interaction_skills_2" value="1">
+                    <label for="interaction_yes_2">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_no_2" name="interaction_skills_2" value="0">
+                    <label for="interaction_no_2">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>21. Знание своих истинных чувств необходимо мне для поддержания «хорошей формы».</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_yes_3" name="interaction_skills_3" value="1">
+                    <label for="interaction_yes_3">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_no_3" name="interaction_skills_3" value="0">
+                    <label for="interaction_no_3">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>22. Я обычно быстро прихожу в себя после неожиданного огорчения.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_yes_4" name="interaction_skills_4" value="1">
+                    <label for="interaction_yes_4">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_no_4" name="interaction_skills_4" value="0">
+                    <label for="interaction_no_4">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>23. Я замечаю зависимость своего настроения от настроения окружающих меня людей.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_yes_5" name="interaction_skills_5" value="1">
+                    <label for="interaction_yes_5">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_no_5" name="interaction_skills_5" value="0">
+                    <label for="interaction_no_5">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>24. В долгой дороге мне интереснее общаться с попутчиками, чем читать книгу.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_yes_6" name="interaction_skills_6" value="1">
+                    <label for="interaction_yes_6">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="interaction_no_6" name="interaction_skills_6" value="0">
+                    <label for="interaction_no_6">Нет</label>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label>25. Препятствия на пути к цели делают меня сильнее.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_yes_1" name="self_motivation_1" value="1">
+                    <label for="motivation_yes_1">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_no_1" name="self_motivation_1" value="0">
+                    <label for="motivation_no_1">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>26. Люди, осознающие свои чувства, лучше управляют своей жизнью.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_yes_2" name="self_motivation_2" value="1">
+                    <label for="motivation_yes_2">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_no_2" name="self_motivation_2" value="0">
+                    <label for="motivation_no_2">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>27. Я могу влиять на свое настроение.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_yes_3" name="self_motivation_3" value="1">
+                    <label for="motivation_yes_3">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_no_3" name="self_motivation_3" value="0">
+                    <label for="motivation_no_3">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>28. Я обычно внимательно отношусь к просьбам незнакомых людей о помощи.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_yes_4" name="self_motivation_4" value="1">
+                    <label for="motivation_yes_4">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_no_4" name="self_motivation_4" value="0">
+                    <label for="motivation_no_4">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>29. У меня много друзей, которые всегда поддержат меня в сложной ситуации.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_yes_5" name="self_motivation_5" value="1">
+                    <label for="motivation_yes_5">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_no_5" name="self_motivation_5" value="0">
+                    <label for="motivation_no_5">Нет</label>
+                </div>
+            </div>
+            <div class="form-group my-3">
+                <label>30. Я хотел(а) бы работать не только из-за денег.</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_yes_6" name="self_motivation_6" value="1">
+                    <label for="motivation_yes_6">Да</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="motivation_no_6" name="self_motivation_6" value="0">
+                    <label for="motivation_no_6">Нет</label><br>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit">Отправить</button>
+        </form>
+    </div>
+    </div>
+{% endblock %}
+{#                    <button class="w-100 btn btn-primary btn-lg" type="submit">Отправить</button>#}
+{#<input type="submit" class="btn btn-success" value="Отправить">#}
